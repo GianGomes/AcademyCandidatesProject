@@ -2,16 +2,13 @@ import csv
 import os
 import math
 
-# Função para verificar se um número é um quadrado perfeito
 def is_perfect_square(n):
     return int(math.sqrt(n)) ** 2 == n
 
-# Função para processar os candidatos
 def process_candidates(file_path):
     candidates = []
     states = set()
 
-    # Ler o arquivo e armazenar os dados
     with open(file_path, 'r') as file:
         for line in file:
             name, position, age, state = line.strip().split(';')
@@ -21,7 +18,6 @@ def process_candidates(file_path):
 
     return candidates, states
 
-# Função para calcular as métricas solicitadas
 def calculate_metrics(candidates):
     positions = {}
     
@@ -40,16 +36,15 @@ def calculate_metrics(candidates):
 
     return positions
 
-# Função para gerar um arquivo CSV com candidatos ordenados
 def generate_sorted_csv(candidates):
-    sorted_candidates = sorted(candidates, key=lambda x: x['name'])  # Ordenando por nome
+    sorted_candidates = sorted(candidates, key=lambda x: x['name'])
     with open('Sorted_Academy_Candidates.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['Nome', 'Vaga', 'Idade', 'Estado'])  # Cabeçalho
+        writer.writerow(['Nome', 'Vaga', 'Idade', 'Estado'])
         for candidate in sorted_candidates:
             writer.writerow([candidate['name'], candidate['position'], candidate['age'], candidate['state']])
 
-# Função para encontrar instrutores com base nas pistas
+
 def find_instructors(candidates):
     qa_instructor = None
     mobile_instructor = None
@@ -60,26 +55,22 @@ def find_instructors(candidates):
         state = candidate['state']
         position = candidate['position']
 
-        # Verificar o instrutor de QA
         if position == "QA" and state == "SC":
             if 18 <= age <= 30 and is_perfect_square(age):
-                if name == name[::-1]:  # Verifica se o primeiro nome é um palíndromo
+                if name == name[::-1]:
                     qa_instructor = name
 
-        # Verificar o instrutor de Mobile
         if position == "Mobile" and state == "PI":
             if 30 <= age <= 40 and age % 2 == 0 and name.split()[-1].startswith("C"):
                 mobile_instructor = name
 
     return qa_instructor, mobile_instructor
 
-# Função principal
 def main():
     file_path = 'Academy_Candidates.txt'
     candidates, states = process_candidates(file_path)
     metrics = calculate_metrics(candidates)
     
-    # Exibição dos resultados
     print("Porcentagem de candidatos por vaga:")
     for position, data in metrics.items():
         percentage = (data['count'] / len(candidates)) * 100
@@ -105,11 +96,9 @@ def main():
     print("\nNúmero de estados distintos presentes entre os candidatos:")
     print(len(states))
     
-    # Gerar o arquivo CSV
     generate_sorted_csv(candidates)
     print("\nArquivo 'Sorted_Academy_Candidates.csv' foi criado.")
     
-    # Encontrar os instrutores
     qa_instructor, mobile_instructor = find_instructors(candidates)
     print("\nInstrutor de QA descoberto:", qa_instructor)
     print("Instrutor de Mobile descoberto:", mobile_instructor)
