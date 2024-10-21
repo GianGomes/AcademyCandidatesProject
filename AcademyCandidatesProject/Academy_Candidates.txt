@@ -1,0 +1,21 @@
+Maria Oliveira;Web;30;Rio de Janeiro
+Camila Mendes;Mobile;30;Rio Grande do Sul
+Pedro Lima;Web;22;São Paulo
+Eduardo Gomes;QA;26;São Paulo
+Marcos Dias;QA;31;Santa Catarina
+Tatiane Lima;QA;29;Rio Grande do Sul
+Julia Santos;QA;27;Rio de Janeiro
+Ricardo Almeida;Mobile;32;Santa Catarina
+Fernanda Rocha;Web;29;Rio Grande do Sul
+Renata Gomes;QA;24;Rio de Janeiro
+Rodrigo Nascimento;Mobile;33;Santa Catarina
+Carlos Souza;QA;28;Santa Catarina
+Lucas Pereira;QA;26;São Paulo
+Thiago Martins;Mobile;23;São Paulo
+Isabela Ferreira;Web;34;Rio de Janeiro
+Gabriel Alves;QA;28;Santa Catarina
+Felipe Santos;Mobile;27;São Paulo
+Amanda Costa;QA;25;Rio de Janeiro
+João Silva;Web;25;São Paulo
+Bianca Lima;Web;29;Rio Grande do Sul
+Ana Costa;Mobile;35;Rio Grande do Sul
